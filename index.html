@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FootBALL</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$.ajax({
+  headers: { 'X-Auth-Token': '<your api key>' },
+    url: 'http://api.football-data.org/v1/soccerseasons/398/leagueTable',
+  dataType: 'json',
+  type: 'GET',
+}).done(function(response) {
+  // do something with the response, e.g. isolate the id of a linked resource        
+ 
+  var data=new Array(response.standing);
+console.log(data)
+var i=0;
+  while(i!=17){
+   document.getElementById('details').innerHTML+=data[0][i].teamName+"<img width=30 height=30 src="+data[0][i].crestURI+">"+"<br>";
+   i++;
+  }
+  
+    
+}); 
+
+</script>
+<body>
+<p id="details"></p>
+
+</body>
+</html>
+
